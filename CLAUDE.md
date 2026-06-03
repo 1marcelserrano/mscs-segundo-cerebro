@@ -4,11 +4,10 @@ Este arquivo instrui o Claude Code a manter a wiki deste repositório. Adaptado 
 
 A imagem que organiza tudo: **o repo é a IDE. O LLM é o programador. A wiki é o código-fonte.**
 
-## As três camadas
+## As duas camadas
 
-- **`raw/`** — fontes como chegaram. PDFs, artigos, transcrições, notas soltas, recortes. Entra material cru, sem organização. Você nunca apaga nada daqui.
+- **`raw/`** — fontes como chegaram. PDFs, artigos, transcrições, notas soltas, recortes, e o histórico de IA exportado (em `raw/historico-ia/`). Entra material cru, sem organização. Você nunca apaga nada daqui.
 - **`wiki/`** — conhecimento compilado. Páginas curtas, em português, linkadas entre si. É o que você lê e consulta.
-- **`acervo/`** — histórico de IA destilado (ChatGPT, Claude). Tratado como fonte de consulta, não reescrito.
 
 ## Operações
 
@@ -35,7 +34,7 @@ Regra: **não reescreva a fonte bruta.** A wiki é destilação, não cópia. Ca
 
 ### Consultar (responder a partir da wiki)
 
-Quando eu fizer uma pergunta, responda **a partir da wiki primeiro**. Se a wiki não cobre, diga isso e aponte qual fonte em `raw/` ou `acervo/` poderia cobrir. Cite as páginas que usou.
+Quando eu fizer uma pergunta, responda **a partir da wiki primeiro**. Se a wiki não cobre, diga isso e aponte qual fonte em `raw/` poderia cobrir. Cite as páginas que usou.
 
 ### Revisar (saúde da wiki)
 

@@ -15,7 +15,7 @@ Se o usuário é aluno do MSCREATIVE KEYS, esse repo já existe (foi montado na 
 
 O usuário pode fazer as três ou escolher uma. Confirme no começo qual ele quer.
 
-1. **O Acervo** — exportar o histórico de ChatGPT e Claude e destilá-lo em markdown taggeado e linkado, dentro do repo pessoal.
+1. **O Acervo** — exportar o histórico de ChatGPT e Claude e destilá-lo em markdown taggeado e linkado, em `raw/historico-ia/` no repo pessoal.
 2. **A Wiki Viva** — uma base de conhecimento que cresce sozinha: o usuário joga fontes brutas em `raw/`, o Claude Code compila artigos estruturados em `wiki/`.
 3. **O Batimento** — conectores MCP, iMessage Channels e os slash commands `/hoje`, `/ideias`, `/criar`. O cérebro passa a responder do celular.
 
@@ -45,9 +45,8 @@ meu-cerebro/
 ├── README.md
 ├── .gitignore
 ├── about-me.md          ← quem é o usuário (pra IA ler)
-├── acervo/              ← Fase 1: histórico de IA destilado
-├── raw/                ← Fase 2: fontes que ainda não viraram wiki
-└── wiki/                ← Fase 2: conhecimento compilado e vivo
+├── raw/                 ← fontes brutas (inclui raw/historico-ia/ da Fase 1)
+└── wiki/                ← conhecimento compilado e vivo (Fase 2)
 ```
 
 Use um nome de pasta **sem espaços** (`meu-cerebro`, não `meu cerebro`). Espaço no caminho quebra o tratamento de arquivos.
@@ -72,16 +71,16 @@ Espere o usuário confirmar. Se ele disser "a do ChatGPT vai demorar dias, o que
 
 ### 1b. Trazer os arquivos pro repo (o Claude Code faz)
 
-Quando o usuário tiver os dois ZIPs descompactados, crie a pasta de acervo no repo:
+Quando o usuário tiver os dois ZIPs descompactados, crie a pasta do histórico dentro de `raw/`:
 
 ```bash
-mkdir -p ~/Documents/repos/meu-cerebro/acervo
+mkdir -p ~/Documents/repos/meu-cerebro/raw/historico-ia
 ```
 
-Peça pro usuário arrastar as duas pastas descompactadas pra dentro de `acervo/`. Depois confirme:
+Peça pro usuário arrastar as duas pastas descompactadas pra dentro de `raw/historico-ia/`. Depois confirme:
 
 ```bash
-ls ~/Documents/repos/meu-cerebro/acervo
+ls ~/Documents/repos/meu-cerebro/raw/historico-ia
 ```
 
 ### 1c. Destilar tudo (o Claude Code faz — aqui mora a mágica)
@@ -95,17 +94,17 @@ Abra uma sessão de Claude Code apontada pra pasta do repo. Oriente o usuário:
 > ```
 > Com o Claude Code rodando ali, cole este prompt:
 > ```
-> Organize a pasta acervo/ deste repositório. Converta todas as minhas
-> conversas de ChatGPT e Claude em arquivos markdown individuais, cada um
-> com frontmatter (titulo, data, tags, categoria). Depois rode sub-agentes
+> Organize a pasta raw/historico-ia/ deste repositório. Converta todas as
+> minhas conversas de ChatGPT e Claude em arquivos markdown individuais, cada
+> um com frontmatter (titulo, data, tags, categoria). Depois rode sub-agentes
 > em paralelo pra ler cada conversa e taggear com inteligência: nomes,
 > pessoas, lugares, temas recorrentes, projetos e tópicos. Conecte tudo com
 > wikilinks pra que conversas relacionadas se liguem. No fim, escreva um
-> acervo/index.md listando cada arquivo com uma linha de descrição.
+> raw/historico-ia/index.md listando cada arquivo com uma linha de descrição.
 > ```
 
 Isso roda alguns minutos. Quando terminar, oriente:
-> Commite tudo: `git add acervo/ && git commit -m "Acervo destilado" && git push`. Agora seu histórico de IA é versionado e buscável.
+> Commite tudo: `git add raw/ && git commit -m "Acervo destilado em raw/historico-ia" && git push`. Agora seu histórico de IA é versionado e buscável.
 
 **Opcional — grafo no Obsidian.** Se o usuário quiser ver as conexões visualmente:
 > Baixe o Obsidian (grátis, em obsidian.md). Abra → "Open folder as vault" → selecione a pasta do seu repo. Cmd+G abre o grafo. Cada conversa é um nó linkado. Dá uma passeada.
